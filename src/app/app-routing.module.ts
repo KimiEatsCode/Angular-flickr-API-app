@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
 
-{ path:'', redirectTo:'/dashboard', pathMatch: 'full' },
+
 { path: 'home', component: AppComponent }
 
 ];
