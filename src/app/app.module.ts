@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlickrService } from '../app/services/flickr.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchImagesComponent } from './search-images/search-images.component';
 // InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchImagesComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   flickr: {
-    key: ''
+    key: '834e61c4509aae107f618e475684c906'
   }
 };
 
