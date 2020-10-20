@@ -33,21 +33,24 @@ currPage = 1;
 
 constructor(private http: HttpClient) {};
 
-search_keyword(keyword: string) {
+search_keyword(keyword:string) {
+
 if(this.prevKeyword === keyword) {
   this.currPage++;
+  console.log(this.currPage)
 } else {
   this.currPage = 1;
 }
 
-const url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + environment.flickr.key + '&user_id=7718166@N03&per_page=100&page=1&nojsoncallback=1&format=json';
+
+const url = (`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${environment.flickr.key }&text=${keyword}&per_page=24&page=1&format=json&nojsoncallback=true`)
 
 
 this.prevKeyword = keyword;
 
 return this.http.get(url).pipe(map((res:FlickrOutput) => {
 const urlArr = [];
-console.log(JSON.stringify(res));
+// console.log(JSON.stringify(res));
 
 res.photos.photo.forEach((ph: FlickrPhoto) => {
 
