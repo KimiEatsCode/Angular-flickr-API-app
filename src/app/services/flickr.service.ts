@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { env, environment } from 'src/environments/environment';
+import {  environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
 //Ajax is basically is a concept to client-side script that communicates between the server and the client machine to perform any type of operations
@@ -40,11 +40,12 @@ if(this.prevKeyword === keyword) {
   this.currPage = 1;
 }
 
-//working in postman https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=834e61c4509aae107f618e475684c906&text=cat&format=json&nojsoncallback=1&per_page=12&page=1
+const url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + environment.flickr.key + '&user_id=7718166@N03&per_page=100&page=1&nojsoncallback=1&format=json';
+
 
 this.prevKeyword = keyword;
 
-  const url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + environment.flickr.key + '&user_id=dqloves&per_page=10&page=1&nojsoncallback=1&format=json';
+  // const url = 'https://api.flickr.com/services/rest/?method=flickr.galleries.getList&api_key=' + environment.flickr.key + '&user_id=7718166@N03&per_page=10&page=1&nojsoncallback=1&format=json';
 
 
 return this.http.get(url).pipe(map((res:FlickrOutput) => {
