@@ -45,9 +45,6 @@ const url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&a
 
 this.prevKeyword = keyword;
 
-  // const url = 'https://api.flickr.com/services/rest/?method=flickr.galleries.getList&api_key=' + environment.flickr.key + '&user_id=7718166@N03&per_page=10&page=1&nojsoncallback=1&format=json';
-
-
 return this.http.get(url).pipe(map((res:FlickrOutput) => {
 const urlArr = [];
 console.log(JSON.stringify(res));
