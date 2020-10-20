@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { env, environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
 //Ajax is basically is a concept to client-side script that communicates between the server and the client machine to perform any type of operations
@@ -44,13 +44,12 @@ if(this.prevKeyword === keyword) {
 
 this.prevKeyword = keyword;
 
-  const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
+  const url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + environment.flickr.key + '&user_id=dqloves&per_page=10&page=1&nojsoncallback=1&format=json';
 
 
-  const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=12&page=${this.currPage}`;
-
-return this.http.get(url + params).pipe(map((res:FlickrOutput) => {
+return this.http.get(url).pipe(map((res:FlickrOutput) => {
 const urlArr = [];
+console.log(JSON.stringify(res));
 
 res.photos.photo.forEach((ph: FlickrPhoto) => {
 
