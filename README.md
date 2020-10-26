@@ -1,2 +1,2 @@
-# Angular with Flickr API
+Angular with Flickr API
 
