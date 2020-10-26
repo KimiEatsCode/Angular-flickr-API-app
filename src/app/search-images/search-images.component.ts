@@ -13,7 +13,7 @@ export class SearchImagesComponent implements OnInit {
   constructor(private flickrService: FlickrService) { }
 
   ngOnInit() {
-    this.flickrService.search_keyword(this.keyword)
+    this.flickrService.search_keyword("birds")
     .toPromise()
     .then(res => {
       this.images = res;
@@ -32,14 +32,5 @@ export class SearchImagesComponent implements OnInit {
     }
   }
 
-  onScroll() {
-    if (this.keyword && this.keyword.length > 0) {
-      this.flickrService.search_keyword(this.keyword)
-      .toPromise()
-      .then(res => {
-        this.images = this.images.concat(res);
-      });
-    }
-  }
 
 }

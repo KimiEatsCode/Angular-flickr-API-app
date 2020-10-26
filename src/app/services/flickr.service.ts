@@ -3,10 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import {  environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
-//Ajax is basically is a concept to client-side script that communicates between the server and the client machine to perform any type of operations
-
-
-//To define a class as a service in Angular, use the @Injectable() decorator to provide the metadata that allows Angular to inject it into a component as a dependency. Similarly, use the @Injectable() decorator to indicate that a component or other class (such as another service, a pipe, or an NgModule) has a dependency.
 
 export interface FlickrPhoto {
   farm: string;
@@ -43,7 +39,7 @@ if(this.prevKeyword === keyword) {
 }
 
 
-const url = (`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${environment.flickr.key }&text=${keyword}&per_page=24&page=1&format=json&nojsoncallback=true`)
+const url = (`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${environment.flickr.key }&license=2%2C3%2C4%2C5%2C6%2C9&text=${keyword}&per_page=24&page=1&format=json&nojsoncallback=true`)
 
 
 this.prevKeyword = keyword;
